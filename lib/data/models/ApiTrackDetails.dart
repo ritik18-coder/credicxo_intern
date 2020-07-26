@@ -1,5 +1,4 @@
-import 'dart:convert';
-import 'package:http/http.dart';
+
 class ApiResultModel {
   Message message;
 
@@ -18,7 +17,6 @@ class ApiResultModel {
     return data;
   }
 }
-
 class Message {
   Header header;
   Body body;
@@ -42,7 +40,6 @@ class Message {
     return data;
   }
 }
-
 class Header {
   int statusCode;
   double executeTime;
@@ -61,7 +58,6 @@ class Header {
     return data;
   }
 }
-
 class Body {
   List<TrackList> trackList;
 
@@ -84,7 +80,6 @@ class Body {
     return data;
   }
 }
-
 class TrackList {
   Track track;
 
@@ -284,3 +279,5 @@ class MusicGenre {
     return data;
   }
 }
+
+

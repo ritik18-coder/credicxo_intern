@@ -10,7 +10,9 @@ class TrackLyricsRepositoryImp implements TrackLyricsRepository{
   final id;
   @override
   Future<String> getTracksLyrics() async{
-    var response= await http.get("https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=$id&apikey=2d782bc7a52a41ba2fc1ef05b9cf40d7");
+    print("lyrics is called");
+    print("ccc https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=$id&apikey=620e1d85f32dacc2cf5476919da1e255");
+    var response= await http.get("https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=$id&apikey=620e1d85f32dacc2cf5476919da1e255");
     var data = json.decode(response.body);
     var statusCode =data['message']['header']['status_code'];
     if(statusCode==200){

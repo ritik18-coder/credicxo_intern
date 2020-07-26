@@ -22,6 +22,7 @@ class TrackInfoBloc extends Bloc<TrackInfoEvent,TrackInfoState>{
         List tracksinfo =await repository.getTracksInfo();
         yield TrackInfoLoadedState(tracks: tracksinfo);
       }catch(e){
+        print(e);
         yield TrackInfoErrorState(error:"Server Not reachable");
       }
 

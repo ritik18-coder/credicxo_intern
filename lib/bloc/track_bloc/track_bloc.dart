@@ -4,8 +4,8 @@ import 'package:credicxo_intern/bloc/track_bloc/track_state.dart';
 import 'package:credicxo_intern/data/apiCalling/track_api.dart';
 import 'package:meta/meta.dart';
 import 'package:credicxo_intern/data/models/ApiTrackDetails.dart';
+
 class TrackBloc extends Bloc<TrackEvent,TrackState>{
- // TrackBloc(TrackState initialState) : super(initialState);
 TrackBloc({@required this.repository});
 
   TrackRepository repository;

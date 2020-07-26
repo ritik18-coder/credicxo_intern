@@ -18,6 +18,7 @@ dependencies:
   http: ^0.12.2
   flutter_bloc: ^2.0.0
   connectivity: ^0.4.9
+  shared_preferences: ^0.5.8
   equatable: ^1.2.3
   meta: ^1.2.2
 

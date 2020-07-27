@@ -1,3 +1,4 @@
+import 'file:///C:/Users/aditya/AndroidStudioProjects/credicxo_intern/lib/constants.dart';
 import 'package:credicxo_intern/bloc/tracklyrics_bloc/tracklyrics_event.dart';
 import 'package:credicxo_intern/bloc/tracklyrics_bloc/tracklyrics_bloc.dart';
 import 'package:credicxo_intern/bloc/tracklyrics_bloc/tracklyrics_state.dart';
@@ -84,7 +85,10 @@ class _TrackBlocInfoState extends State<TrackBlocInfo> {
 
   Widget buildArticleList(String lyrics) {
     return Container(
-      child: Text(lyrics),
+      decoration: dec2,
+      margin: EdgeInsets.symmetric(vertical:10,horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+      child: Text(lyrics,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
     );
   }
 }

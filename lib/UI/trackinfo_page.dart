@@ -1,3 +1,4 @@
+import 'file:///C:/Users/aditya/AndroidStudioProjects/credicxo_intern/lib/constants.dart';
 import 'package:credicxo_intern/bloc/trackinfo_bloc/trackinfo_event.dart';
 import 'package:credicxo_intern/bloc/trackinfo_bloc/trackinfo_bloc.dart';
 import 'package:credicxo_intern/bloc/trackinfo_bloc/trackinfo_state.dart';
@@ -7,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:credicxo_intern/UI/tracklyrics_page.dart';
 import 'package:connectivity/connectivity.dart';
 import 'dart:io';
-import 'package:credicxo_intern/UI/checkConnection.dart';
+import 'file:///C:/Users/aditya/AndroidStudioProjects/credicxo_intern/lib/checkConnection.dart';
 class TrackInfo extends StatelessWidget {
   TrackInfo({this.trackId});
   final trackId;
@@ -16,6 +17,7 @@ class TrackInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.deepPurple[900],
         title: Text("Track Details"),
       ),
       body:BlocProvider(
@@ -118,20 +120,29 @@ class _TrackBlocInfoState extends State<TrackBlocInfo> {
       shrinkWrap: true,
       physics: ScrollPhysics(),
       children: <Widget>[
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: tracks.length,
-          itemBuilder: (ctx, pos) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ListTile(
-                title: Text(tracks[pos]),
-              ),
-            );
-          },
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 20,horizontal: 10),
+          decoration: dec,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              ReUsable(title: "TRACK NAME",value: tracks[0],),
+              ReUsable(title: "ALBUM NAME",value: tracks[1],),
+              ReUsable(title: "ARTIST NAME",value: tracks[2],),
+              ReUsable(title: "EXPLICIT",value: tracks[3]==0?'False':'True',),
+              ReUsable(title: "RATING",value: tracks[4],),
+
+            ],
+          ),
+        ),
+        Container(
+          decoration: dec,
+          margin: EdgeInsets.symmetric(vertical: 0,horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+          child: Center(child: Text("LYRICS",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900,fontSize: 18,decoration: TextDecoration.underline),),),
         ),
         ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: 500),
+            constraints: BoxConstraints(maxHeight: 1200),
             child: Container(child: TrackLyrics(trackId: widget.trackId,))),
       ],
     );
@@ -140,3 +151,16 @@ class _TrackBlocInfoState extends State<TrackBlocInfo> {
 /*
 
  */
+
+class ReUsable extends StatelessWidget {
+  ReUsable({this.title,this.value});
+  final title;
+  final value;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+        margin:EdgeInsets.all(10),
+        child: Text('$title - $value',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),));
+  }
+}

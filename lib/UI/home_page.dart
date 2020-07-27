@@ -1,5 +1,5 @@
 import 'package:credicxo_intern/UI/bookMarked.dart';
-import 'file:///C:/Users/aditya/AndroidStudioProjects/credicxo_intern/lib/constants.dart';
+import 'package:credicxo_intern/constants.dart';
 import 'package:credicxo_intern/bloc/track_bloc/track_bloc.dart';
 import 'package:credicxo_intern/bloc/track_bloc/track_event.dart';
 import 'package:credicxo_intern/bloc/track_bloc/track_state.dart';
@@ -7,7 +7,7 @@ import 'package:credicxo_intern/data/models/ApiTrackDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:credicxo_intern/UI/trackinfo_page.dart';
-import 'file:///C:/Users/aditya/AndroidStudioProjects/credicxo_intern/lib/checkConnection.dart';
+import 'package:credicxo_intern/checkConnection.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class HomePage extends StatefulWidget {

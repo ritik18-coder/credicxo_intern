@@ -1,14 +1,13 @@
-import 'file:///C:/Users/aditya/AndroidStudioProjects/credicxo_intern/lib/constants.dart';
-import 'package:credicxo_intern/bloc/trackinfo_bloc/trackinfo_event.dart';
+import 'package:connectivity/connectivity.dart';
+import 'package:credicxo_intern/UI/tracklyrics_page.dart';
 import 'package:credicxo_intern/bloc/trackinfo_bloc/trackinfo_bloc.dart';
+import 'package:credicxo_intern/bloc/trackinfo_bloc/trackinfo_event.dart';
 import 'package:credicxo_intern/bloc/trackinfo_bloc/trackinfo_state.dart';
+import 'package:credicxo_intern/checkConnection.dart';
+import 'package:credicxo_intern/constants.dart';
 import 'package:credicxo_intern/data/apiCalling/trackInfo_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:credicxo_intern/UI/tracklyrics_page.dart';
-import 'package:connectivity/connectivity.dart';
-import 'dart:io';
-import 'file:///C:/Users/aditya/AndroidStudioProjects/credicxo_intern/lib/checkConnection.dart';
 class TrackInfo extends StatelessWidget {
   TrackInfo({this.trackId});
   final trackId;

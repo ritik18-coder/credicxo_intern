@@ -1,7 +1,7 @@
-import 'file:///C:/Users/aditya/AndroidStudioProjects/credicxo_intern/lib/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:credicxo_intern/UI/trackinfo_page.dart';
+import 'package:credicxo_intern/constants.dart';
 class BookMarked extends StatefulWidget {
   @override
   _BookMarkedState createState() => _BookMarkedState();

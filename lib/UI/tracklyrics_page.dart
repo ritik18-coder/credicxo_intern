@@ -1,12 +1,10 @@
-import 'file:///C:/Users/aditya/AndroidStudioProjects/credicxo_intern/lib/constants.dart';
 import 'package:credicxo_intern/bloc/tracklyrics_bloc/tracklyrics_event.dart';
 import 'package:credicxo_intern/bloc/tracklyrics_bloc/tracklyrics_bloc.dart';
 import 'package:credicxo_intern/bloc/tracklyrics_bloc/tracklyrics_state.dart';
 import 'package:credicxo_intern/data/apiCalling/trackLyrics_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:credicxo_intern/constants.dart';
 class TrackLyrics extends StatelessWidget {
   TrackLyrics({this.trackId});
   final trackId;

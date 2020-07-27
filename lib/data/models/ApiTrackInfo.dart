@@ -201,10 +201,7 @@ class PrimaryGenres {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    /*if (this.musicGenreList != null) {
-      data['music_genre_list'] =
-          this.musicGenreList.map((v) => v.toJson()).toList();
-    }*/
+
     return data;
   }
 }

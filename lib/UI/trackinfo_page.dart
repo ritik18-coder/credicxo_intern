@@ -8,6 +8,7 @@ import 'package:credicxo_intern/constants.dart';
 import 'package:credicxo_intern/data/apiCalling/trackInfo_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class TrackInfo extends StatelessWidget {
   TrackInfo({this.trackId});
   final trackId;
@@ -18,6 +19,9 @@ class TrackInfo extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple[900],
         title: Text("Track Details"),
+        actions: <Widget>[
+
+        ],
       ),
       body:BlocProvider(
         builder:(context)=> TrackInfoBloc(repository: TrackInfoRepositoryImp(trackId)),
@@ -85,7 +89,7 @@ class _TrackBlocInfoState extends State<TrackBlocInfo> {
             } else if (state is TrackInfoLoadingState) {
               return buildLoading();
             } else if (state is TrackInfoLoadedState) {
-              return buildArticleList(state.tracks);
+              return buildTrackInfoList(state.tracks);
             } else if (state is TrackInfoErrorState) {
               return buildErrorUi(state.error);
             }
@@ -114,7 +118,7 @@ class _TrackBlocInfoState extends State<TrackBlocInfo> {
     );
   }
 
-  Widget buildArticleList(List tracks) {
+  Widget buildTrackInfoList(List tracks) {
     return ListView(
       shrinkWrap: true,
       physics: ScrollPhysics(),
@@ -129,7 +133,50 @@ class _TrackBlocInfoState extends State<TrackBlocInfo> {
               ReUsable(title: "ALBUM NAME",value: tracks[1],),
               ReUsable(title: "ARTIST NAME",value: tracks[2],),
               ReUsable(title: "EXPLICIT",value: tracks[3]==0?'False':'True',),
-              ReUsable(title: "RATING",value: tracks[4],),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      margin:EdgeInsets.all(10),
+                      child: Text('RATING - ${tracks[4]}',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),)),
+                  IconButton(
+                      icon: FutureBuilder(
+                        future: _check(widget.trackId.toString()),
+                        builder: (context,snapshot){
+                          if(snapshot.hasData){
+                            if(snapshot.data==true){
+                              return Icon(Icons.bookmark,color: Colors.white,);
+                            }
+                            if(snapshot.data==false){
+                              return Icon(Icons.bookmark_border,color: Colors.white);
+                            }
+                          }
+                          else{
+                            return Icon(Icons.bookmark_border,color: Colors.white);
+                          }
+                        },
+                      ),
+                      onPressed: () async{
+                        SharedPreferences prefs =await SharedPreferences.getInstance();
+                        if(await _check(widget.trackId.toString())==false){
+                          prefs.setString(widget.trackId.toString(), tracks[0].toString());
+                          print("added");
+                          setState(() {
+
+                          });
+                        }else{
+                          prefs.remove(widget.trackId.toString());
+                          print("remove");
+                          setState(() {
+
+                          });
+                        }
+
+                      }
+                  )
+                ],
+              )
 
             ],
           ),
@@ -162,4 +209,13 @@ class ReUsable extends StatelessWidget {
         margin:EdgeInsets.all(10),
         child: Text('$title - $value',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),));
   }
+}
+
+
+Future<bool> _check(check) async{
+  final prefs = await SharedPreferences.getInstance();
+  bool result;
+  result =prefs.containsKey(check);
+  return result;
+
 }

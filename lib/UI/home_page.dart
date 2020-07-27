@@ -60,8 +60,10 @@ class _HomePageState extends State<HomePage> {
           return Material(
             child: Scaffold(
               appBar: AppBar(
-                backgroundColor: Colors.deepPurple[900],
-                title: Text("Trending"),
+                title: Center(child: Text("Trending")),
+                flexibleSpace: Container(
+                  decoration: dec3,
+                ),
                 actions: <Widget>[
                   IconButton(
                     icon: Icon(Icons.bookmark),
@@ -97,8 +99,8 @@ class _HomePageState extends State<HomePage> {
                       } else if (state is TrackLoadingState) {
                         return buildLoading();
                       } else if (state is TrackLoadedState) {
-                        return buildArticleList(state.tracks);
-                      } else if (state is TrackErrorState) {
+                        return buildTrackList(state.tracks);
+                      } else if  (state is TrackErrorState) {
                         return buildErrorUi(state.error);
                       }
                     },
@@ -130,7 +132,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildArticleList(List<TrackList> tracks) {
+  Widget buildTrackList(List<TrackList> tracks) {
     return ListView.builder(
       itemCount: tracks.length,
       itemBuilder: (ctx, pos) {
@@ -151,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
                 title: Container(
-                    margin: EdgeInsets.only(bottom: 10),
+                    margin: EdgeInsets.only(top: 10),
                     child: Text('TRACK NAME - ${tracks[pos].track.trackName}',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
                 subtitle:Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

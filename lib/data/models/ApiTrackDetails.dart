@@ -145,12 +145,6 @@ class Track {
   Track.fromJson(Map<String, dynamic> json) {
     trackId = json['track_id'];
     trackName = json['track_name'];
-    /*if (json['track_name_translation_list'] != null) {
-      trackNameTranslationList = new List<Null>();
-      json['track_name_translation_list'].forEach((v) {
-        trackNameTranslationList.add(new Null.fromJson(v));
-      });
-    }*/
     trackRating = json['track_rating'];
     commontrackId = json['commontrack_id'];
     instrumental = json['instrumental'];

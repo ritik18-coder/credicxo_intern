@@ -16,3 +16,10 @@ BoxDecoration dec2 =BoxDecoration(
         end: Alignment.bottomLeft,
         colors: [Colors.deepPurpleAccent[400],Colors.deepPurpleAccent[700],Colors.deepPurple[900]])
 );
+
+BoxDecoration dec3 =BoxDecoration(
+    gradient: LinearGradient(
+        begin: Alignment.topRight,
+        end: Alignment.bottomLeft,
+        colors: [Colors.deepPurple[900],Colors.deepPurple[700]])
+);

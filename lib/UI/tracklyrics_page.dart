@@ -30,6 +30,7 @@ class _TrackBlocInfoState extends State<TrackBlocInfo> {
   @override
   void initState() {
     super.initState();
+    print("Initilaized");
     trackLyricsBloc = BlocProvider.of<TrackLyricsBloc>(context);
     trackLyricsBloc.add(FetchTrackLyricsEvent());
   }
@@ -72,7 +73,7 @@ class _TrackBlocInfoState extends State<TrackBlocInfo> {
   Widget buildErrorUi(String message) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(10.0),
         child: Text(
           message,
           style: TextStyle(color: Colors.red),

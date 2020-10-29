@@ -5,7 +5,7 @@ BoxDecoration dec =BoxDecoration(
     gradient: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomLeft,
-        colors: [Colors.deepPurpleAccent[400],Colors.deepPurpleAccent[700],Colors.deepPurple[900]])
+        colors: [Colors.deepPurpleAccent[500],Colors.deepPurpleAccent[600],Colors.deepPurple[800]])
 );
 
 
@@ -14,7 +14,7 @@ BoxDecoration dec2 =BoxDecoration(
     gradient: LinearGradient(
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
-        colors: [Colors.deepPurpleAccent[400],Colors.deepPurpleAccent[700],Colors.deepPurple[900]])
+        colors: [Colors.deepPurpleAccent[400],Colors.deepPurpleAccent[600],Colors.deepPurple[800]])
 );
 
 BoxDecoration dec3 =BoxDecoration(
@@ -23,3 +23,5 @@ BoxDecoration dec3 =BoxDecoration(
         end: Alignment.bottomLeft,
         colors: [Colors.deepPurple[900],Colors.deepPurple[700]])
 );
+kTextFieldColor = Colors.green;
+kLabelColor = Colors.blue;

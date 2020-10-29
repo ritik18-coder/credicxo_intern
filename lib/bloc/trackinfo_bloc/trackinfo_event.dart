@@ -8,3 +8,7 @@ class FetchTrackInfoEvent extends TrackInfoEvent{
   @override
   List<Object> get props=>null;
 }
+class LetchTrackInfoEvent extends TrackInfoEvent{
+  @override
+  List<Object> get props=>null;
+}

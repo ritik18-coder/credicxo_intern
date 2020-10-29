@@ -23,5 +23,6 @@ BoxDecoration dec3 =BoxDecoration(
         end: Alignment.bottomLeft,
         colors: [Colors.deepPurple[900],Colors.deepPurple[700]])
 );
-kTextFieldColor = Colors.green;
-kLabelColor = Colors.blue;
+final Color kTextFieldColor = Colors.green[800];
+final Color kLabelColor = Colors.blue[500];
+final Color kPatternColor = Colors.deepPurple[700];
